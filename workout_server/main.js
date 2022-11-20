@@ -34,18 +34,15 @@ app.post("/registerUser", async (req, res) => {
     //console.log(readUserData.userExists(req.body.user));
     //let doesUserExist = readUserData.userExists(usersName);
 
-    const checkUser = async () => {
-        const doesUserExist = await readUserData.userExists(usersName);
+    const doesUserExist = await readUserData.userExists(usersName);
 
-        if (doesUserExist === true) {
-            res.send(projectedWeight);
-        }
-        else {
-            res.send([0]);
-        }
+    if (doesUserExist === true) {
+        res.send(projectedWeight);
+    }
+    else {
+        res.send([0]);
     }
 
-    await checkUser();
 })
 
 app.listen(port);
