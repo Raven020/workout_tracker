@@ -9,7 +9,8 @@ import { serverUrl } from "./App";
  */
 export const getUsersData = async (username) => {
     // returns the users data
-    let user = { "username": username };
+    let user = { user: username };
+    console.log("in get user data", JSON.stringify(user));
     let usersLifts = {};
     // fetch the users data from the server to display
     const response = await fetch(serverUrl + "registerUser", {
@@ -18,7 +19,7 @@ export const getUsersData = async (username) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: user,
+        body: JSON.stringify(user),
         //body: JSON.stringify(username),
     }).catch(error => {
         console.log(error);
